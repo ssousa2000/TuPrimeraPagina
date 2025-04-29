@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+
+{% block contenido %}
+<h2>Mensajes Recibidos</h2>
+<ul>
+  {% for mensaje in mensajes_recibidos %}
+    <li><strong>De:</strong> {{ mensaje.emisor.username }} | {{ mensaje.cuerpo }} | {{ mensaje.fecha }}</li>
+  {% empty %}
+    <li>No tienes mensajes recibidos.</li>
+  {% endfor %}
+</ul>
+
+<br>
+
+<h2>Mensajes Enviados</h2>
+<ul>
+  {% for mensaje in mensajes_enviados %}
+    <li><strong>Para:</strong> {{ mensaje.receptor.username }} | {{ mensaje.cuerpo }} | {{ mensaje.fecha }}</li>
+  {% empty %}
+    <li>No has enviado mensajes.</li>
+  {% endfor %}
+</ul>
+
+<br>
+
+<a href="{% url 'enviar_mensaje' %}">Enviar nuevo mensaje</a>
+{% endblock %}

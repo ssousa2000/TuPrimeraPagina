@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block contenido %}
+<h2>Enviar Mensaje</h2>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Enviar</button>
+</form>
+
+<br>
+
+<a href="{% url 'inbox' %}">Volver a la bandeja de entrada</a>
+{% endblock %}
