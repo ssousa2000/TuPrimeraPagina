@@ -6,9 +6,14 @@
   {% if object_list %}
     <ul>
       {% for post in object_list %}
-        <li>
-          <a href="{% url 'post_detail' post.pk %}">{{ post.titulo }}</a>
-        </li>
+      <li>
+        <a href="{% url 'post_detail' post.pk %}">{{ post.titulo }}</a>
+        —
+        <a href="{% url 'post_update' post.pk %}">✏️ Editar</a>
+        |
+        <a href="{% url 'post_delete' post.pk %}">🗑️ Borrar</a>
+      </li>
+      
       {% endfor %}
     </ul>
   {% else %}
